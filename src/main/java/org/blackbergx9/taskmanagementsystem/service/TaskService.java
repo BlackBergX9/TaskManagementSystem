@@ -13,7 +13,6 @@ import org.blackbergx9.taskmanagementsystem.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,7 +29,7 @@ public class TaskService {
     public CreateTaskResponseDto createNewTask(CreateTaskRequestDto task) {
 
         Task taskEntity = taskRepository
-            .save(new TaskMapper().toTaskEntity(task)); // TODO: check description is not null
+            .save(new TaskMapper().toTaskEntity(task));
 
         return new TaskMapper()
             .toCreateTaskResponseDto(taskEntity);
@@ -111,7 +110,7 @@ public class TaskService {
             return taskRepository.save(dbTask);
 
         })
-        . orElse(null);
+        . orElse(null)
         ;
 
         if (saved == null) return null;
