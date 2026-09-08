@@ -30,7 +30,7 @@ public class TaskService {
     public CreateTaskResponseDto createNewTask(CreateTaskRequestDto task) {
 
         Task taskEntity = taskRepository
-            .save(new TaskMapper().toTaskEntity(task));
+            .save(new TaskMapper().toTaskEntity(task)); // TODO: check description is not null
 
         return new TaskMapper()
             .toCreateTaskResponseDto(taskEntity);
