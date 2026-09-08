@@ -19,7 +19,6 @@ public class CreateTaskRequestDto {
     @Size(min = 3, max = 55, message = "Size out of bound")
     private String title;
 
-//    @NotBlank(message = "Invalid Description")
     private String description;
 
     @NotNull(message = "Assignee Name Required")
