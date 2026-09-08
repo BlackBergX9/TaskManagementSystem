@@ -1,6 +1,8 @@
-package org.blackbergx9.taskmanagementsystem.entity;
+package org.blackbergx9.taskmanagementsystem.dto.res;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Data;
 import org.blackbergx9.taskmanagementsystem.util.Priority;
 import org.blackbergx9.taskmanagementsystem.util.Status;
@@ -8,12 +10,21 @@ import org.blackbergx9.taskmanagementsystem.util.Status;
 import java.time.Instant;
 import java.time.LocalDateTime;
 
-@Data
-@Entity
-public class Task {
+@JsonPropertyOrder({
+    "id",           //
+    "assignee",     //
+    "title",        //
+    "description",  //
+    "priority",     //
+    "status",       //
+    "dueDate",      //
+    "createdAt",    //
+    "updatedAt"     //
+})
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Data
+public class UpdateTaskResponseDto {
+
     private Long id;
 
     private String title;
@@ -30,9 +41,4 @@ public class Task {
 
     private Instant createdAt;
     private Instant updatedAt;
-
-
-
-//    private LocalDateTime completedAt;
-
 }
