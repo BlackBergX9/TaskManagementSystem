@@ -8,3 +8,9 @@ import org.springframework.stereotype.Repository;
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
 }
+ /* Select *
+    from user
+    join task
+    on user.id == task.assigne_id
+    where task.title like "customer %"
+ * */

@@ -5,7 +5,10 @@ spring:
         url: jdbc:postgresql://localhost:5432/task_management_system
         username: ${dbUsername}
         password: ${dbPassword}
-
     jpa:
         hibernate:
             ddl-auto: update
+
+    web:
+        error:
+            include-message: always     # Sends Error-Message with Error Response.  (Not use for Production).
