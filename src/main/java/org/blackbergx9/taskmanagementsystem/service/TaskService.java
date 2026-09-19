@@ -10,6 +10,8 @@ import org.blackbergx9.taskmanagementsystem.entity.Task;
 import org.blackbergx9.taskmanagementsystem.exception.ResourceNotFoundException;
 import org.blackbergx9.taskmanagementsystem.mapper.TaskMapper;
 import org.blackbergx9.taskmanagementsystem.repository.TaskRepository;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -47,13 +49,17 @@ public class TaskService {
     }
 
 
-    public List<GetAllTaskResponseDto> getTaskList() {
+    public List<GetAllTaskResponseDto> getTaskList(int page, int limit, String search) {
 
         TaskMapper taskMapper = new TaskMapper();
 
         return
         taskRepository
-                .findAll()
+                .findByTitleContainingIgnoreCase(search, PageRequest.of(
+                        page,
+                        limit,
+                        Sort.by("id").ascending().and( Sort.by("title").ascending() )
+                        ))
                 .stream()
                 .map(taskMapper::toGetAllTaskResponseDto)
                 .toList();

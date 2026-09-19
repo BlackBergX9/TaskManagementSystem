@@ -74,9 +74,19 @@ public class TaskController {
 
    // TODO: Support: Pagination, Sorting, Search, Filtering
     @GetMapping
-    public ResponseEntity<?> getAllTasks() {
+    public ResponseEntity<?> getAllTasks(
+            @RequestParam(defaultValue = "0") float page,
+            @RequestParam(defaultValue = "10") float limit,
+            @RequestParam(defaultValue = "") String s
+    ) {
 
-        List<GetAllTaskResponseDto> taskList = taskService.getTaskList();
+
+
+        List<GetAllTaskResponseDto> taskList = taskService.getTaskList(
+                (int)page,
+                (int)limit,
+                s
+        );
         return new ResponseEntity<>(Map.of("tasks", taskList), HttpStatus.OK);
     }
 }
