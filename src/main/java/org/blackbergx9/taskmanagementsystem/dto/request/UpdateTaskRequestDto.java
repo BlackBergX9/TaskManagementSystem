@@ -12,9 +12,10 @@ import java.time.LocalDateTime;
 @Data
 public class UpdateTaskRequestDto {
 
-    @Size(min = 3, max = 55, message = "Size out of bound")
+    @Size(min = 5, max = 100, message = "Size out of bound")
     private String title;
 
+    @Size(min = 10, message = "Size out of bound")
     private String description;
 
     @Enumerated(EnumType.STRING)

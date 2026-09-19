@@ -2,10 +2,7 @@ package org.blackbergx9.taskmanagementsystem.dto.request;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.FutureOrPresent;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 import org.blackbergx9.taskmanagementsystem.util.Priority;
 import org.blackbergx9.taskmanagementsystem.util.Status;
@@ -16,9 +13,11 @@ import java.time.LocalDateTime;
 public class CreateTaskRequestDto {
 
     @NotBlank(message = "Invalid Title")
-    @Size(min = 3, max = 55, message = "Size out of bound")
+    @Size(min = 5, max = 100, message = "Size out of bound")
     private String title;
 
+    @NotBlank(message = "Description Required")
+    @Min(value = 10, message = "Size out of bound")
     private String description;
 
     @NotNull(message = "Assignee Name Required")
