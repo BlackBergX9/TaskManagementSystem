@@ -55,10 +55,13 @@ public class TaskService {
 
         return
         taskRepository
-                .findByTitleContainingIgnoreCase(search, PageRequest.of(
+                .findBySearchQuery(search, PageRequest.of(
                         page,
                         limit,
-                        Sort.by("id").ascending().and( Sort.by("title").ascending() )
+                        Sort.by("id").ascending()
+                                .and( Sort.by("title").ascending() )
+                                .and( Sort.by("assignee").ascending() )
+
                         ))
                 .stream()
                 .map(taskMapper::toGetAllTaskResponseDto)
