@@ -102,8 +102,10 @@ public class GlobalExceptionHandler {
 
         ex.getBindingResult()
                 .getFieldErrors()
-                .forEach( error -> fieldErrors
-                        .put( error.getField(), error.getDefaultMessage() )
+                .forEach( error -> fieldErrors.put(
+                        error.getField(),
+                        error.getDefaultMessage()
+                        )
                 );
 
         resBody.setFieldErrors(fieldErrors);
