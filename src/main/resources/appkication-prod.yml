@@ -1,0 +1,8 @@
+logging:
+    group:
+        myLogs:
+            - root
+            - org.springframework.web
+            - org.blackbergx9.taskmanagementsystem
+    level:
+        myLogs: INFO

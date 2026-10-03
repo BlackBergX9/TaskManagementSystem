@@ -56,7 +56,7 @@ public class TaskService {
         return
         taskRepository
                 .findBySearchQuery(search, PageRequest.of(
-                        page,
+                        page,   // page starts with 0
                         limit,
                         Sort.by("id").ascending()
                                 .and( Sort.by("title").ascending() )
@@ -87,7 +87,6 @@ public class TaskService {
                 .findById(taskId)
                 .orElseThrow( () ->
                         new ResourceNotFoundException("No task found with id " + taskId) );
-
 
             Task taskUpdates = new TaskMapper().toTaskEntity(updateTaskDto);
 
