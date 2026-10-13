@@ -1,6 +1,8 @@
 # 📋 Task Management System
 
-A robust, enterprise-grade RESTful API for managing tasks, built with **Spring Boot**, **Spring Data JPA**, and **PostgreSQL**. Features comprehensive validation, global error handling, aspect-oriented logging (AOP), and interactive API documentation powered by OpenAPI / Swagger.
+**Task Management System** is a backend application designed to help individuals and teams organize, prioritize, and track their day-to-day work from creation to completion. It brings structure to workflow management by allowing users to create tasks, assign responsibilities, set urgency levels, track progress across key states, and monitor deadlines to ensure projects stay on schedule.
+
+Built as a robust, production-grade RESTful API powered by **Spring Boot**, **Spring Data JPA**, and **PostgreSQL**, the system features strict data validation, centralized error handling, aspect-oriented logging (AOP), and interactive API documentation via OpenAPI / Swagger.
 
 ---
 
